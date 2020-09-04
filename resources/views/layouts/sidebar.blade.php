@@ -89,7 +89,7 @@
             </li>
 
             <li class="c-sidebar-nav-item">
-              <a class="c-sidebar-nav-link" href="/hastag">
+              <a class="c-sidebar-nav-link" href="hastag">
                 <i class="fas fa-caret-right mt-0 mb-2 ml-0 mr-2"></i> 
                 <span class ="mb-2">Hastag information</span> 
 

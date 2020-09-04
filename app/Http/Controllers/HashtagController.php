@@ -14,7 +14,8 @@ class HashtagController extends Controller
      */
     public function index()
     {
-        //
+        $hashtags = hashtag::all();
+        return view('page.hashtag.index' , ['hashtags' => $hashtags]);
     }
 
     /**
@@ -24,6 +25,7 @@ class HashtagController extends Controller
      */
     public function create()
     {
+        return "create";
         //
     }
 
@@ -35,7 +37,20 @@ class HashtagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $hashtagCheck = hashtag::where('hashtagname' , $request->hashtagname)->first();
+
+        if($hashtagCheck == null)
+        {
+            hashtag::create(['hashtagname'=> $request->hashtagname,]);
+            $request->session()->flash('success' , 'add hashtag success fully');
+            return redirect()->action('HashtagController@index'); 
+        }
+        else
+        {
+            $request->session()->flash('warning' , 'hashtag has already exit');
+            return redirect()->action('HashtagController@index'); 
+        }
+
     }
 
     /**
@@ -46,6 +61,7 @@ class HashtagController extends Controller
      */
     public function show(hashtag $hashtag)
     {
+        return "show function";
         //
     }
 
@@ -57,7 +73,7 @@ class HashtagController extends Controller
      */
     public function edit(hashtag $hashtag)
     {
-        //
+        return "edit function";
     }
 
     /**
@@ -67,8 +83,24 @@ class HashtagController extends Controller
      * @param  \App\hashtag  $hashtag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, hashtag $hashtag)
+    public function update(Request $request,$hashtag)
     {
+        
+        $hashtagCheck = hashtag::where('hashtagname' , $request->hashtagname)->first();
+
+        if($hashtagCheck == null)
+        {
+            hashtag::where('id' , $hashtag)
+                    ->update(['hashtagname'=> $request->hashtagname]);
+
+            $request->session()->flash('success' , 'Add hashtag Success fully');
+            return redirect()->action('HashtagController@index'); 
+        }
+        else
+        {
+            $request->session()->flash('warning' , 'hashtag has already exit');
+            return redirect()->action('HashtagController@index'); 
+        }
         //
     }
 
@@ -80,6 +112,9 @@ class HashtagController extends Controller
      */
     public function destroy(hashtag $hashtag)
     {
-        //
+        $deleteModel = hashtag::where('id' , $hashtag->id);
+        $deleteModel->delete();
+        session()->flash('success' , 'Delete hashtag Success fully');
+        return redirect()->action('HashtagController@index'); 
     }
 }

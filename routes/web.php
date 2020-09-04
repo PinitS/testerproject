@@ -13,23 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('hashtag', 'HashtagController');
+
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/index', function () {
-    return view('page.member.index');
-});
-
-Route::get('/hastag', function () {
-    return view('page.manager.hashtag');
-});
-
-Route::get('/userinfo', function () {
-    return view('page.manager.userinfo');
-});
-
-
-Route::get('/master', function () {
-    return view('layouts.master');
 });
