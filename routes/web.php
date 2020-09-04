@@ -17,6 +17,8 @@ Route::resource('hashtag', 'HashtagController');
 
 Route::resource('material', 'MaterialController');
 
+Route::resource('job', 'JobController');
+
 Route::get('/', function () {
     return view('welcome');
 });

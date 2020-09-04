@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('pagetitle' , 'hashtag')
+@section('pagetitle' , 'job')
 
 @section('content')
 
@@ -57,23 +57,23 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Hashtag name</th>
+          <th>job name</th>
           <th>Action</th>
         </tr>
       </thead>
 
       <tbody>
 
-        @foreach($hashtags as $hashtag)
-        <form action="{{ route('hashtag.destroy', [$hashtag->id]) }}" method="POST">
+        @foreach($jobs as $job)
+        <form action="{{ route('job.destroy', [$job->id]) }}" method="POST">
           {{ method_field('DELETE') }}
           {{ csrf_field() }}
           <tr>
-            <td>{{$hashtag->id}}</td>
-            <td>{{$hashtag->hashtagname}}</td>
+            <td>{{$job->id}}</td>
+            <td>{{$job->jobname}}</td>
             <td>
 
-              <button class="btn btn-sm btn-warning mb-1 text-white" type="button" data-toggle="modal" data-target="#largeModal{{$hashtag->id}}">
+              <button class="btn btn-sm btn-warning mb-1 text-white" type="button" data-toggle="modal" data-target="#largeModal{{$job->id}}">
                 <i class="fas fa-share-square"></i>
               </button>
 
@@ -100,22 +100,22 @@
 
   </div>
 
-  <form action="hashtag" method="post">
+  <form action="job" method="post">
 
     {{ csrf_field() }}
     <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Add Hashtag</h4>
+            <h4 class="modal-title">Add job</h4>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
           </div>
           <div class="modal-body">
             <!-- add form -->
-            <p>#Hashtag Name...</p>
+            <p>#job Name...</p>
             <div class="input-group">
               <div class="input-group-prepend"><span class="input-group-text" id="btnGroupAddon">#</span></div>
-              <input class="form-control" type="text" id = "hashtagname" name = "hashtagname" required placeholder="Hashtag Name..." aria-label="Input group example" aria-describedby="btnGroupAddon">
+              <input class="form-control" type="text" id = "jobname" name = "jobname" required placeholder="job Name..." aria-label="Input group example" aria-describedby="btnGroupAddon">
             </div>
 
           </div>
@@ -132,15 +132,14 @@
 
   
 
-  @foreach($hashtags as $hashtag)
+  @foreach($jobs as $job)
 
 
-
-    <form action="{{ action('HashtagController@update' , [$hashtag->id] )}}" method="post">
+    <form action="{{ action('JobController@update' , [$job->id] )}}" method="post">
       {{ csrf_field() }}
       <input type="hidden" name = "_method" value = "PUT">
 
-      <div class="modal fade" id="largeModal{{$hashtag->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+      <div class="modal fade" id="largeModal{{$job->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -149,10 +148,10 @@
             </div>
             <div class="modal-body">
               <!-- add form -->
-              <p>#hashtag name</p>
+              <p>#job name</p>
               <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text" id="btnGroupAddon">#</span></div>
-                <input class="form-control" type="text" id = "hashtagname" name = "hashtagname" required value = "{{$hashtag->hashtagname}}" aria-label="Input group example" aria-describedby="btnGroupAddon">
+                <input class="form-control" type="text" id = "jobname" name = "jobname" required value = "{{$job->jobname}}" aria-label="Input group example" aria-describedby="btnGroupAddon">
               </div>
 
             </div>
