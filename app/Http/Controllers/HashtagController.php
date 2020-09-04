@@ -98,6 +98,15 @@ class HashtagController extends Controller
         }
         else
         {
+            if($hashtagCheck->id == $hashtag)
+            {
+                hashtag::where('id' , $hashtag)
+                        ->update(['hashtagname'=> $request->hashtagname]);
+
+                $request->session()->flash('success' , 'Add hashtag Success fully');
+                return redirect()->action('HashtagController@index'); 
+
+            }
             $request->session()->flash('warning' , 'hashtag has already exit');
             return redirect()->action('HashtagController@index'); 
         }
@@ -112,8 +121,8 @@ class HashtagController extends Controller
      */
     public function destroy(hashtag $hashtag)
     {
-        $deleteModel = hashtag::where('id' , $hashtag->id);
-        $deleteModel->delete();
+        $deletehashtag = hashtag::where('id' , $hashtag->id);
+        $deletehashtag->delete();
         session()->flash('success' , 'Delete hashtag Success fully');
         return redirect()->action('HashtagController@index'); 
     }

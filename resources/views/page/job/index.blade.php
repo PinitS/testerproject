@@ -11,11 +11,11 @@
     
     <div class="row">
       <div class="col-md-6 col-md-6">
-          #Hashtag Information 
+          #Job Information 
       </div>
 
       <div class="col-md-6">
-        <button class="btn btn-info mb-1" type="button" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"></i> Add Hashtag</button>
+        <button class="btn btn-info mb-1" type="button" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"></i> Add Job</button>
       </div>
     </div>
 
