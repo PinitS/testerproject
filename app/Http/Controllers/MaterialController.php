@@ -48,12 +48,12 @@ class MaterialController extends Controller
                                 'materialprice' => $request->materialprice,
 
                             ]);
-            $request->session()->flash('success' , 'add material success fully');
+            $request->session()->flash('success' , 'Add material success fully');
             return redirect()->action('MaterialController@index'); 
         }
         else
         {
-            $request->session()->flash('warning' , 'material has already exit');
+            $request->session()->flash('danger' , 'material has already exit');
             return redirect()->action('MaterialController@index'); 
         }
     }
@@ -100,7 +100,7 @@ class MaterialController extends Controller
                                 'materialprice'=> $request->materialprice
                             ]);
 
-            $request->session()->flash('success' , 'Update material Success fully');
+            $request->session()->flash('info' , 'Update material Success fully');
             return redirect()->action('MaterialController@index'); 
         }
         else
@@ -113,11 +113,11 @@ class MaterialController extends Controller
                                     'materialprice'=> $request->materialprice
                                 ]);
 
-                $request->session()->flash('success' , 'Update material Success fully');
+                $request->session()->flash('info' , 'Update material Success fully');
                 return redirect()->action('MaterialController@index'); 
             }
 
-            $request->session()->flash('warning' , 'material has already exit');
+            $request->session()->flash('danger' , 'material has already exit');
             return redirect()->action('MaterialController@index'); 
         }
         //

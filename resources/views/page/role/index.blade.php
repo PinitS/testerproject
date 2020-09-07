@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('pagetitle' , 'hashtag')
+@section('pagetitle' , 'roles')
 
 @section('content')
 

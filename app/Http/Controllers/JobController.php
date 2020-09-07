@@ -47,7 +47,7 @@ class JobController extends Controller
         }
         else
         {
-            $request->session()->flash('warning' , 'job has already exit');
+            $request->session()->flash('danger' , 'job has already exit');
             return redirect()->action('JobController@index'); 
         }
         //
@@ -84,7 +84,31 @@ class JobController extends Controller
      */
     public function update(Request $request, job $job)
     {
-        return "uadate func";
+
+        $jobCheck = job::where('jobname' , $request->jobname)->first();
+
+        if($jobCheck == null)
+        {
+            job::where('id' , $job->id)
+                    ->update(['jobname'=> $request->jobname]);
+
+            $request->session()->flash('info' , 'Update Job Success fully');
+            return redirect()->action('JobController@index'); 
+        }
+        else
+        {
+            if($jobCheck->id == $job->id)
+            {
+                job::where('id' , $job->id)
+                        ->update(['jobname'=> $request->jobname]);
+
+                $request->session()->flash('info' , 'Update Job Success fully');
+                return redirect()->action('JobController@index'); 
+
+            }
+            $request->session()->flash('danger' , 'Job has already exit');
+            return redirect()->action('JobController@index'); 
+        }
         //
     }
 
@@ -96,6 +120,7 @@ class JobController extends Controller
      */
     public function destroy(job $job)
     {
+        return "del func";
         //
     }
 }

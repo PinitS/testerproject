@@ -44,7 +44,9 @@
           @elseif(Session::has('danger'))
             <div class="alert alert-danger"> <h5 class="alert-heading"> {{Session::get('danger')}} </h5> </div>
           @elseif(Session::has('warning'))
-            <div class="alert alert-warning"> <h5 class="alert-heading"> {{Session::get('warning')}} </h5> </div>  
+            <div class="alert alert-warning"> <h5 class="alert-heading"> {{Session::get('warning')}} </h5> </div>
+          @elseif(Session::has('info'))
+            <div class="alert alert-info"> <h5 class="alert-heading"> {{Session::get('info')}} </h5> </div>    
           @endif
   
         </div>

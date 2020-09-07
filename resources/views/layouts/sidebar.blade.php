@@ -104,12 +104,18 @@
               </a>
             </li>
 
-            
-
             <li class="c-sidebar-nav-item">
               <a class="c-sidebar-nav-link" href="job">
                 <i class="fas fa-caret-right mt-0 mb-2 ml-0 mr-2"></i> 
                 <span class ="mb-2">Job information</span> 
+                <span class="badge badge-warning">admin</span>
+              </a>
+            </li>
+
+            <li class="c-sidebar-nav-item">
+              <a class="c-sidebar-nav-link" href="role">
+                <i class="fas fa-caret-right mt-0 mb-2 ml-0 mr-2"></i> 
+                <span class ="mb-2">Roles information</span> 
                 <span class="badge badge-warning">admin</span>
               </a>
             </li>

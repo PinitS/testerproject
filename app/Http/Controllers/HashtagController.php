@@ -42,12 +42,12 @@ class HashtagController extends Controller
         if($hashtagCheck == null)
         {
             hashtag::create(['hashtagname'=> $request->hashtagname,]);
-            $request->session()->flash('success' , 'add hashtag success fully');
+            $request->session()->flash('success' , 'Add hashtag success fully');
             return redirect()->action('HashtagController@index'); 
         }
         else
         {
-            $request->session()->flash('warning' , 'hashtag has already exit');
+            $request->session()->flash('danger' , 'hashtag has already exit');
             return redirect()->action('HashtagController@index'); 
         }
 
@@ -93,7 +93,7 @@ class HashtagController extends Controller
             hashtag::where('id' , $hashtag)
                     ->update(['hashtagname'=> $request->hashtagname]);
 
-            $request->session()->flash('success' , 'Add hashtag Success fully');
+            $request->session()->flash('info' , 'Update hashtag Success fully');
             return redirect()->action('HashtagController@index'); 
         }
         else
@@ -103,11 +103,11 @@ class HashtagController extends Controller
                 hashtag::where('id' , $hashtag)
                         ->update(['hashtagname'=> $request->hashtagname]);
 
-                $request->session()->flash('success' , 'Add hashtag Success fully');
+                $request->session()->flash('info' , 'Update hashtag Success fully');
                 return redirect()->action('HashtagController@index'); 
 
             }
-            $request->session()->flash('warning' , 'hashtag has already exit');
+            $request->session()->flash('danger' , 'hashtag has already exit');
             return redirect()->action('HashtagController@index'); 
         }
         //
