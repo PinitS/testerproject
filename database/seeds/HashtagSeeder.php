@@ -11,6 +11,12 @@ class HashtagSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $data = [
+                    ['hashtagname' => 'หวานน้อย'],
+                    ['hashtagname' => 'ไม่หวาน']
+                ];
+
+        \App\hashtag::insert($data);
+
     }
 }
