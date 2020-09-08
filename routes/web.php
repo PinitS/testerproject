@@ -19,8 +19,13 @@ Route::resource('material', 'MaterialController');
 
 Route::resource('job', 'JobController');
 
-Route::resource('job', 'RoleController');
+Route::resource('role', 'RoleController');
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('/test', function () {
+    return view('page.test.index');
 });

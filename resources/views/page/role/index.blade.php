@@ -11,29 +11,19 @@
     
     <div class="row">
       <div class="col-md-6 col-md-6">
-          #Hashtag Information 
+          #Role Information 
       </div>
 
       <div class="col-md-6">
-        <button class="btn btn-info mb-1" type="button" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"></i> Add Hashtag</button>
+
+        @if($keywords != null)
+          <button class="btn btn-info mb-1 pnt-add-btn" type="button" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"></i> Add Roles</button>
+        @endif
+
       </div>
+      
     </div>
 
-    <div class="row mt-1">
-      <div class="col-md-6">
-          #Show
-      </div>
-
-      <div class="col-md-6">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
-          <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button">Go!</button>
-          </span>
-        </div>
-      </div>
-
-    </div>
 
     <div class="row mt-3">
 
@@ -59,23 +49,25 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Hashtag name</th>
+          <th>keywords</th>
+          <th>Roles name</th>
           <th>Action</th>
         </tr>
       </thead>
 
       <tbody>
 
-        @foreach($hashtags as $hashtag)
-        <form action="{{ route('hashtag.destroy', [$hashtag->id]) }}" method="POST">
+        @foreach($roles as $role)
+        <form action="{{ route('role.destroy', [$role->id]) }}" method="POST">
           {{ method_field('DELETE') }}
           {{ csrf_field() }}
           <tr>
-            <td>{{$hashtag->id}}</td>
-            <td>{{$hashtag->hashtagname}}</td>
+            <td>{{$role->id}}</td>
+            <td>{{$role->keyword}}</td>
+            <td>{{$role->rolename}}</td>
             <td>
 
-              <button class="btn btn-sm btn-warning mb-1 text-white" type="button" data-toggle="modal" data-target="#largeModal{{$hashtag->id}}">
+              <button class="btn btn-sm btn-warning mb-1 text-white" type="button" data-toggle="modal" data-target="#largeModal{{$role->id}}">
                 <i class="fas fa-share-square"></i>
               </button>
 
@@ -102,22 +94,35 @@
 
   </div>
 
-  <form action="hashtag" method="post">
+  <form action="role" method="post">
 
     {{ csrf_field() }}
     <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Add Hashtag</h4>
+            <h4 class="modal-title">Add Roles</h4>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
           </div>
           <div class="modal-body">
             <!-- add form -->
-            <p>#Hashtag Name...</p>
+            <p>#Role Name...</p>
+            
+
+            <select class="form-control mb-2" id= "keyword" name ="keyword">
+              @foreach ($keywords as $keyword)
+
+                <option value="{{$keyword}}">{{$keyword}}</option>
+
+
+              @endforeach
+            </select>
+            <!-- add form -->
+
+
             <div class="input-group">
               <div class="input-group-prepend"><span class="input-group-text" id="btnGroupAddon">#</span></div>
-              <input class="form-control" type="text" id = "hashtagname" name = "hashtagname" required placeholder="Hashtag Name..." aria-label="Input group example" aria-describedby="btnGroupAddon">
+              <input class="form-control" type="text" id = "rolename" name = "rolename" required placeholder="Roles Name..." aria-label="Input group example" aria-describedby="btnGroupAddon">
             </div>
 
           </div>
@@ -134,15 +139,15 @@
 
   
 
-  @foreach($hashtags as $hashtag)
+  @foreach($roles as $role)
 
 
 
-    <form action="{{ action('HashtagController@update' , [$hashtag->id] )}}" method="post">
+    <form action="{{ action('RoleController@update' , [$role->id] )}}" method="post">
       {{ csrf_field() }}
       <input type="hidden" name = "_method" value = "PUT">
 
-      <div class="modal fade" id="largeModal{{$hashtag->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+      <div class="modal fade" id="largeModal{{$role->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -151,10 +156,10 @@
             </div>
             <div class="modal-body">
               <!-- add form -->
-              <p>#hashtag name</p>
+              <p>#Role name</p>
               <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text" id="btnGroupAddon">#</span></div>
-                <input class="form-control" type="text" id = "hashtagname" name = "hashtagname" required value = "{{$hashtag->hashtagname}}" aria-label="Input group example" aria-describedby="btnGroupAddon">
+                <input class="form-control" type="text" id = "rolenameupdate" name = "rolenameupdate" required value = "{{$role->rolename}}" aria-label="Input group example" aria-describedby="btnGroupAddon">
               </div>
 
             </div>
@@ -167,14 +172,17 @@
         </div>
       </div>
       </form>
-
     @endforeach
-
-  
 
 
 </div>
 
     
+@endsection
+
+@section('script')
+  <script>
+
+  </script>
 
 @endsection
