@@ -106,22 +106,23 @@
           </div>
           <div class="modal-body">
             <!-- add form -->
-            <p>#Role Name...</p>
+            <p>Add Role</p>
             
 
-            <select class="form-control mb-2" id= "keyword" name ="keyword">
+            <select class="form-control mb-4" id= "keyword" name ="keyword">
               @foreach ($keywords as $keyword)
 
                 <option value="{{$keyword}}">{{$keyword}}</option>
-
-
+                
               @endforeach
             </select>
+
+          
             <!-- add form -->
 
-
+            <p>#Role Name...</p>
             <div class="input-group">
-              <div class="input-group-prepend"><span class="input-group-text" id="btnGroupAddon">#</span></div>
+              {{-- <div class="input-group-prepend"><span class="input-group-text" id="btnGroupAddon">#</span></div> --}}
               <input class="form-control" type="text" id = "rolename" name = "rolename" required placeholder="Roles Name..." aria-label="Input group example" aria-describedby="btnGroupAddon">
             </div>
 
@@ -158,7 +159,7 @@
               <!-- add form -->
               <p>#Role name</p>
               <div class="input-group">
-                <div class="input-group-prepend"><span class="input-group-text" id="btnGroupAddon">#</span></div>
+                {{-- <div class="input-group-prepend"><span class="input-group-text" id="btnGroupAddon">#</span></div> --}}
                 <input class="form-control" type="text" id = "rolenameupdate" name = "rolenameupdate" required value = "{{$role->rolename}}" aria-label="Input group example" aria-describedby="btnGroupAddon">
               </div>
 

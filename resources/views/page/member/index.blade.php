@@ -72,7 +72,7 @@
             <div class="card p-4">
               <div class="card-body">
 
-                <form action="/checkmember" method="post">
+                <form method="POST" action="{{ route('login') }}">
                   {{ csrf_field() }}
                   
                   <h1>Login</h1>
@@ -85,7 +85,8 @@
                         </svg>
                       </span>
                     </div>
-                    <input class="form-control" type="text" name = "Username" id="Username" placeholder="Username">
+                    <input class="form-control" type="text" name = "username" id="username" placeholder="username" required>
+
                   </div>
                   <div class="input-group mb-4">
                     <div class="input-group-prepend">
@@ -95,15 +96,16 @@
                         </svg>
                       </span>
                     </div>
-                    <input class="form-control" type="password" name = "password" id="password" placeholder="Password">
+                    <input class="form-control" type="password" name = "password" id="password" placeholder="Password" required>
+                    
                   </div>
                   <div class="row">
-                    <div class="col-6">
-                      <button class="btn btn-primary px-4" type="submit">Login</button>
+                    <div class="col-12">
+                      <button class="btn btn-primary px-4 btn-block" type="submit">Login</button>
                     </div>
-                    <div class="col-6 text-right">
+                    {{-- <div class="col-6 text-right">
                     <button class="btn btn-link" type="button" data-toggle="modal" data-target="#Register">Register</button>
-                    </div>
+                    </div> --}}
                   </div>
                 </form>
 

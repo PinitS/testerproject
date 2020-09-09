@@ -116,7 +116,7 @@
             <!-- add form -->
             <p>#job Name...</p>
             <div class="input-group">
-              <div class="input-group-prepend"><span class="input-group-text" id="btnGroupAddon">#</span></div>
+              {{-- <div class="input-group-prepend"><span class="input-group-text" id="btnGroupAddon">#</span></div> --}}
               <input class="form-control" type="text" id = "jobname" name = "jobname" required placeholder="job Name..." aria-label="Input group example" aria-describedby="btnGroupAddon">
             </div>
 
@@ -152,7 +152,7 @@
               <!-- add form -->
               <p>#job name</p>
               <div class="input-group">
-                <div class="input-group-prepend"><span class="input-group-text" id="btnGroupAddon">#</span></div>
+                {{-- <div class="input-group-prepend"><span class="input-group-text" id="btnGroupAddon">#</span></div> --}}
                 <input class="form-control" type="text" id = "jobname" name = "jobname" required value = "{{$job->jobname}}" aria-label="Input group example" aria-describedby="btnGroupAddon">
               </div>
 

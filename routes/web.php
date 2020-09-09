@@ -12,23 +12,34 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'auth'], function () 
+{
+    Route::resource('hashtag', 'HashtagController');
 
-Route::resource('hashtag', 'HashtagController');
+    Route::resource('material', 'MaterialController');
 
-Route::resource('material', 'MaterialController');
+    Route::resource('job', 'JobController');
 
-Route::resource('job', 'JobController');
-
-Route::resource('role', 'RoleController');
-
-Route::get('/', function () {
-    return view('welcome');
+    Route::resource('role', 'RoleController');
 });
 
+Route::get('/', function () 
+{
+    return view('auth.login');
+});
+
+// Route::get('/', function () {
+//     return view('page.member.index');
+// });
+
+
+Auth::routes();
+
+
+
+
+//for test
 
 Route::get('/test', function () {
     return view('page.test.index');
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

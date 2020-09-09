@@ -30,6 +30,8 @@
           </a>
         </li>
 
+        @if(Auth::user()->status == 1)
+
         <li class="c-sidebar-nav-item">
           <a class="c-sidebar-nav-link disabled" href="#">
           <i class="fas fa-folder-open mt-0 mb-2 ml-1 mr-4 h5"></i> 
@@ -38,6 +40,7 @@
             <span class="badge badge-danger">Disabled</span>
           </a>
         </li>
+        @endif
 
         <li class="c-sidebar-nav-item">
           <a class="c-sidebar-nav-link disabled" href="#">
@@ -81,7 +84,7 @@
 
           <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item">
-              <a class="c-sidebar-nav-link" href="manager">
+              <a class="c-sidebar-nav-link" href="userinfo">
                 <i class="fas fa-caret-right mt-0 mb-2 ml-0 mr-2"></i> 
                 <span class ="mb-2">User information</span> 
                 
@@ -103,7 +106,7 @@
 
               </a>
             </li>
-
+            @if(Auth::user()->status == 1)
             <li class="c-sidebar-nav-item">
               <a class="c-sidebar-nav-link" href="job">
                 <i class="fas fa-caret-right mt-0 mb-2 ml-0 mr-2"></i> 
@@ -111,7 +114,7 @@
                 <span class="badge badge-warning">admin</span>
               </a>
             </li>
-
+            
             <li class="c-sidebar-nav-item">
               <a class="c-sidebar-nav-link" href="role">
                 <i class="fas fa-caret-right mt-0 mb-2 ml-0 mr-2"></i> 
@@ -135,7 +138,7 @@
                 <span class="badge badge-warning">admin</span>
               </a>
             </li>
-
+            @endif
           </ul>
         </li>
 

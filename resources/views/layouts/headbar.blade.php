@@ -6,10 +6,10 @@
           <svg class="c-icon c-icon-lg">
             <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
           </svg>
-        </button><a class="c-header-brand d-lg-none" href="#">
-          <svg width="118" height="46" alt="CoreUI Logo">
-            <use xlink:href="assets/brand/coreui.svg#full"></use>
-          </svg></a>
+        </button>
+        <div class="c-header-brand d-lg-none" href="#">
+          <i class="text-danger c-icon c-icon-2xl cil-meh "></i>
+        </div>
         <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
           <svg class="c-icon c-icon-lg">
             <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
@@ -24,15 +24,19 @@
 
         <ul class="c-header-nav ml-auto mr-4">
           <li class="c-header-nav-item d-md-down-none mx-2">
-            <span class ="text-danger font-weight-bolder">Username : @yield('username')</span>
+            <span class ="text-danger font-weight-bolder">Username : {{ Auth::user()->username }} </span>
           </li>
 
           <li class="c-header-nav-item d-md-down-none mx-2">
-            <span class ="text-danger font-weight-bolder">UserStatus : @yield('userstatus')</span>
+            <span class ="text-danger font-weight-bolder">UserStatus :  @if (Auth::user()->status == 1)
+                                                                          Admin
+                                                                        @else
+                                                                          Member
+                                                                        @endif
           </li>
 
           <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              <div class="c-avatar"><img class="c-avatar-img" src="assets/img/avatars/6.jpg" alt="user@email.com"></div>
+              <div class="c-avatar"><img class="c-avatar-img" src="assets/img/avatars/5.jpg" alt="user@email.com"></div>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right pt-0">
@@ -50,10 +54,14 @@
                   <span class ="mb-2">ChangePassword</span>
                 </a>
                 
-                <a class="dropdown-item" href="member">
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
                   <i class="fas fa-unlink mt-0 mb-2 ml-0 mr-2"></i> 
                   <span class ="mb-2">Logout</span>  
                 </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
 
             </div>
 
