@@ -14,22 +14,22 @@ class MaterialSeeder extends Seeder
         $data = 
         [
             [ 
-                'materialname' => 'ร้อน',
+                'materialname' => 'hot',
                 'materialprice' => 0,
             ],
 
             [ 
-                'materialname' => 'เย็น',
+                'materialname' => 'cold',
                 'materialprice' => 5,
             ],
             
             [ 
-                'materialname' => 'ปั่น',
+                'materialname' => 'spin',
                 'materialprice' => 10,
             ],
 
             [ 
-                'materialname' => 'วิปครีม',
+                'materialname' => 'Whipped cream',
                 'materialprice' => 15,
             ],
         ];

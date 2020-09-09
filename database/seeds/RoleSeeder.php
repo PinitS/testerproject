@@ -11,6 +11,13 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
+        $data = [
+                    ['keyword' => 'Cashier' , 'rolename' => 'cashier']
+                    ,
+                    ['keyword' => 'CEO' , 'rolename' => 'ceo']
+                ];
+
+        \App\role::insert($data);
 
     }
 }

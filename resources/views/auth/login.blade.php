@@ -85,7 +85,7 @@
                         </svg>
                       </span>
                     </div>
-                    <input class="form-control" type="text" name = "username" id="username" placeholder="username" required>
+                    <input class="form-control" type="text" name = "username" id="username" value="{{ old('username') }}" placeholder="username" required>
 
                   </div>
                   <div class="input-group mb-4">

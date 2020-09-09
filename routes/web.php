@@ -21,11 +21,21 @@ Route::group(['middleware' => 'auth'], function ()
     Route::resource('job', 'JobController');
 
     Route::resource('role', 'RoleController');
+
+    Route::resource('category', 'CategoryController');
 });
 
 Route::get('/', function () 
 {
-    return view('auth.login');
+    if(Auth::user())
+    {
+        return redirect()->action('HashtagController@index');
+    }
+    else
+    {
+        return view('auth.login');
+    }
+    
 });
 
 // Route::get('/', function () {

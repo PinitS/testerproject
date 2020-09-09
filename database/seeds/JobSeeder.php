@@ -11,6 +11,12 @@ class JobSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $data = [
+                    ['jobname' => 'Employee']
+                    ,
+                    ['jobname' => 'Manager']
+                ];
+
+        \App\job::insert($data);
     }
 }
