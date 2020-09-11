@@ -38,7 +38,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request;
+    
         $categoryCheck = category::where('categoryname' , $request->categoryname)->first();
 
         if($categoryCheck == null)

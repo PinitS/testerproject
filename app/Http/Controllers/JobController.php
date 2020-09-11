@@ -120,7 +120,11 @@ class JobController extends Controller
      */
     public function destroy(job $job)
     {
-        return "del func";
+
+        $deletejob = job::where('id' , $job->id);
+        $deletejob->delete();
+        session()->flash('success' , 'Delete job Success fully');
+        return redirect()->action('JobController@index'); 
         //
     }
 }

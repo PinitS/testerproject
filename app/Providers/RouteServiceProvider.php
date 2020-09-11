@@ -21,7 +21,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/hashtag';
+    public const HOME = '/userinfo';
 
     /**
      * Define your route model bindings, pattern filters, etc.

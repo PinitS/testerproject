@@ -23,6 +23,12 @@ Route::group(['middleware' => 'auth'], function ()
     Route::resource('role', 'RoleController');
 
     Route::resource('category', 'CategoryController');
+
+    Route::resource('userinfo', 'UserinfoController');
+
+    Route::resource('userRole', 'UserRoleController');
+
+    Route::get('/userinfo/{Ative}/{Usid}/' ,'UserinfoController@activeupdate')->name('userinfo.activeupdate');
 });
 
 Route::get('/', function () 

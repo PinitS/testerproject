@@ -10,14 +10,18 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function job()
+    {
+        return $this->belongsTo(job::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $fillable = ['username', 'password', 'name','contact', 'active', 'job_id','status'];
+
 
     /**
      * The attributes that should be hidden for arrays.

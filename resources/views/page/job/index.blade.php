@@ -76,11 +76,11 @@
             <td>
 
               <button class="btn btn-sm btn-warning mb-1 text-white" type="button" data-toggle="modal" data-target="#largeModal{{$job->id}}">
-                <i class="fas fa-share-square"></i>
+                <i class="fas fa-share-square fa-lg"></i>
               </button>
 
               <button class="btn btn-sm btn-danger mb-1 text-white"> 
-                <i class="fas fa-times"></i>
+                <i class="fas fa-times fa-lg"></i>
               </button>
             </td>
           </tr>
