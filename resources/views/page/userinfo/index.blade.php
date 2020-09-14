@@ -116,6 +116,12 @@
                         </button>
 
 
+                        <button class="btn btn-sm btn-warning mb-1 text-white" type="button" data-toggle="modal" data-target="#myModalLabelresetpass{{$User->id}}">
+                          <i class="fas fa-lock-open lg"></i>
+                        </button>
+
+
+
                       @endif
 
                     </td>
@@ -247,7 +253,7 @@
                       </select>
                     
 
-                      <label for="ccyear">Job</label>
+                      <label for="job">Job</label>
                       <select class="form-control" id="job" name ="job">
                         <option value="0">No job information</option>
                         @foreach ($jobs as $job)
@@ -365,6 +371,46 @@
       </form>
     @endforeach
 
+
+    @foreach($Users as $User)
+      <form action="/userinfo-Member" method="post">
+        {{ csrf_field() }}
+
+        <input type="hidden" name ="usid" id ="usid" value="{{$User->id}}">
+        {{-- modal header reset password  --}}
+        <div class="modal fade" id="myModalLabelresetpass{{$User->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Change Password</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              </div>
+              <div class="modal-body">
+
+                <div class="col-md-10 container">
+
+                  <label for="name">New password</label>
+                  <input class="form-control" id="npass" name ="npass" type="password" placeholder="New password..." value="" required>
+                  <br>
+
+                  <label for="name">Confirm New Password</label>
+                  <input class="form-control" id="cpass" name ="cpass" type="password" placeholder="Confirm New Password..." value="" required>
+                  <br>
+
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="submit">Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content-->
+          </div>
+          <!-- /.modal-dialog-->
+        </div>
+      </form>
+    @endforeach
 
   </div>
 

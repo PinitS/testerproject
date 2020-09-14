@@ -35,6 +35,12 @@
                                                                         @endif
           </li>
 
+          <li class="c-header-nav-item d-md-down-none mx-2">
+
+            <span class ="text-danger font-weight-bolder">test decrypt password :  {{Auth::user()->password }}
+
+          </li>
+
           <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
               <div class="c-avatar"><img class="c-avatar-img" src="assets/img/avatars/5.jpg" alt="user@email.com"></div>
             </a>
@@ -45,18 +51,22 @@
               </div>
           
                 <a class="dropdown-item" href="#">
-                  <i class="fas fa-user mt-0 mb-2 ml-0 mr-2"></i> 
+                  <i class="fas fa-user mt-0 mb-2 ml-0 mr-3"></i> 
                   <span class ="mb-2">Profile</span>   
                 </a>
 
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user-cog mt-0 mb-2 ml-0 mr-2"></i> 
-                  <span class ="mb-2">ChangePassword</span>
-                </a>
+                <div class="dropdown-item">
+                  <i class="fas fa-wrench mt-0 mb-1 ml-0"></i> 
+                  <button class="btn mb-1" type="button" data-toggle="modal" data-target="#myModal">Change Password</button>
+                </div>
+
+
+
+
                 
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                  <i class="fas fa-unlink mt-0 mb-2 ml-0 mr-2"></i> 
+                  <i class="fas fa-unlink mt-0 mb-2 ml-0 mr-3"></i> 
                   <span class ="mb-2">Logout</span>  
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -67,6 +77,7 @@
 
           </li>
         </ul>
+
         <!-- <div class="c-subheader px-3">
 
           <ol class="breadcrumb border-0 m-0">

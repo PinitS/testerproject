@@ -70,6 +70,50 @@
           <div class="container-fluid">
             <div class="fade-in">
               @yield('content')
+
+              {{-- <form action="/userinfochangeOnlyPassword-{{ Auth::user()->id }}-" method="post"> --}}
+                {{ csrf_field() }}
+                {{-- modal header reset password  --}}
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Change Password</h4>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                      </div>
+                      <div class="modal-body">
+
+
+                        <div class="col-md-10 container">
+      
+                          <label for="name">Original password</label>
+                          <input class="form-control" id="opass" name ="opass" type="password" placeholder="Original password..." value="" required>
+                          <br>
+
+                          <label for="name">New password</label>
+                          <input class="form-control" id="npass" name ="npass" type="password" placeholder="New password..." value="" required>
+                          <br>
+
+                          <label for="name">Confirm New Password</label>
+                          <input class="form-control" id="cpass" name ="cpass" type="password" placeholder="Confirm New Password..." value="" required>
+                          <br>
+          
+        
+                        </div>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                        <button class="btn btn-primary" type="submit">Save changes</button>
+                      </div>
+                    </div>
+                    <!-- /.modal-content-->
+                  </div>
+                  <!-- /.modal-dialog-->
+                </div>
+              {{-- </form> --}}
+              {{-- modal header reset password --}}
+              
             </div>
           </div>
         </main>
@@ -87,6 +131,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 
     @yield('script')
+
+    
 
   </body>
 </html>

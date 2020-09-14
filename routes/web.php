@@ -29,6 +29,9 @@ Route::group(['middleware' => 'auth'], function ()
     Route::resource('userRole', 'UserRoleController');
 
     Route::get('/userinfo/{Ative}/{Usid}/' ,'UserinfoController@activeupdate')->name('userinfo.activeupdate');
+    Route::post('/userinfo-Member' ,'UserinfoController@changeMemberPassword')->name('userinfo.resetPassword');
+    // Route::post('/userinfo-Member' ,'UserinfoController@changeMemberPassword')->name('userinfo.changeOnlyPassword');
+
 });
 
 Route::get('/', function () 

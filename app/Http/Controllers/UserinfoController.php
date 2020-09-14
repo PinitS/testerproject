@@ -98,6 +98,27 @@ class UserinfoController extends Controller
         //
     }
 
+    public function changeMemberPassword(Request $request)
+    {
+        //return $request;
+
+        if($request->npass == $request->cpass)
+        {
+            User::where('id' , $request->usid)
+            ->update([  'password'=> bcrypt($request->npass)]);
+            $request->session()->flash('success' , 'Reset Password User Success fully');
+            return redirect()->action('UserinfoController@index'); 
+        }
+        else
+        {
+            $request->session()->flash('danger' , 'NewPassword Or ConfirmPassword not match');
+            return redirect()->action('UserinfoController@index'); 
+        }
+
+
+        //
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
