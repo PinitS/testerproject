@@ -85,7 +85,7 @@
             <td>{{$product->name}}</td>
 
             @if($product->active_count == 0)
-              <td><span class="text-danger">Product doesn't</span></td>
+              <td><span class="text-danger">Product doesn't count</span></td>
             @else
               <td>
 

@@ -28,7 +28,7 @@
           </li>
 
           <li class="c-header-nav-item d-md-down-none mx-2">
-            <span class ="text-danger font-weight-bolder">UserStatus :  @if (Auth::user()->status == 1)
+            <span class ="text-info font-weight-bolder">UserStatus :  @if (Auth::user()->status == 1)
                                                                           Admin
                                                                         @else
                                                                           Member
@@ -37,7 +37,13 @@
 
           <li class="c-header-nav-item d-md-down-none mx-2">
 
-            <span class ="text-danger font-weight-bolder">test decrypt password :  {{Auth::user()->password }}
+            <span class ="text-warning font-weight-bolder">test decrypt password :  {{Auth::user()->password }}
+
+          </li>
+
+          <li class="c-header-nav-item d-md-down-none mx-2">
+
+            <span class ="text-success font-weight-bolder">User Id :  {{Auth::user()->id }}
 
           </li>
 

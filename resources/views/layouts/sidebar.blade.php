@@ -1,7 +1,8 @@
     <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
 
       <div class="c-sidebar-brand d-lg-down-none h4 text-warning">
-        <i class="c-icon c-icon-2xl cil-meh mr-2 "></i> 
+        <a href="/test">
+        <i class="c-icon c-icon-2xl cil-meh mr-2 text-warning"></i> </a>
         <span class ="text-uppercase">TENT-OFFicial</span>
       </div>
 
@@ -44,10 +45,9 @@
         @endif
 
         <li class="c-sidebar-nav-item">
-          <a class="c-sidebar-nav-link disabled" href="#">
+          <a class="c-sidebar-nav-link" href="#">
             <i class="fas fa-shopping-cart mt-0 mb-2 ml-0 mr-4 h5"></i> 
               <span class ="mb-2">Order food</span> 
-              <span class="badge badge-danger">Disabled</span>
             </a>
           </a>
         </li>
@@ -67,10 +67,9 @@
               <span class="badge badge-danger">Disabled</span>
             </a>
           <ul class="c-sidebar-nav-dropdown-items">
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="base/breadcrumb.html"><span class="c-sidebar-nav-icon"></span> Breadcrumb</a></li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="base/cards.html"><span class="c-sidebar-nav-icon"></span> Cards</a></li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="base/carousel.html"><span class="c-sidebar-nav-icon"></span> Carousel</a></li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="base/collapse.html"><span class="c-sidebar-nav-icon"></span> Collapse</a></li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span class="c-sidebar-nav-icon"></span> Report Sale </a></li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span class="c-sidebar-nav-icon"></span> Report Sale Employee of day</a></li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span class="c-sidebar-nav-icon"></span> Report Sale Employee</a></li>
           </ul>
         </li>
 

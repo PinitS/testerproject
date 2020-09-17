@@ -4,9 +4,7 @@
 
 @section('content')
 
-
-
-  <div class="card pnt-card">
+<div class="card">
     <div class="card-header"><strong>Credit Card</strong> <small>Form</small></div>
     <div class="card-body">
       <div class="row">
@@ -74,22 +72,7 @@
   </div>
 
 
-
-
-  <div class="mt-5 card text-white bg-primary text-center pnt-fix" style="position: fixed; top: 55px; right: 10px; z-index: 1000; display: none">
-    <div class="card-body">
-      <blockquote class="card-bodyquote">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-        <footer>Someone famous in
-          <cite title="Source Title">Source Title</cite>
-          <button type="button" style="display: none" class="btn btn-lg btn-danger pnt-btn-in-card" >hide</button>
-        </footer>
-      </blockquote>
-    </div>
-  </div>
-
-
-  <button type="button"  class="btn btn-lg btn-danger pnt-btn-out-card" style="position: fixed; top: 80px; right: 10px;" >Order</button>
+  <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
 
 
   
@@ -99,22 +82,6 @@
 
 @section('script')
   <script>
-
-$('.pnt-btn-out-card').click(function()
-      {
-        $('.pnt-fix').show();
-        $('.pnt-btn-out-card').hide();
-        $('.pnt-btn-in-card').show();
-      }
-  );
-
-$('.pnt-btn-in-card').click(function()
-      {
-        $('.pnt-fix').hide();
-        $('.pnt-btn-out-card').show();
-        $('.pnt-btn-in-card').hide();
-      }
-  );
 
     
 
