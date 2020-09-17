@@ -86,9 +86,13 @@
                     @else
                       <td>{{$User->job->jobname}}</td>
                     @endif
-                    @php($achk ="")
+                    @php
+                      $achk ="";
+                    @endphp
                     @if($User->active == 1)
-                      @php($achk ='checked =""')
+                      @php
+                        $achk ='checked =""';
+                      @endphp
                     @endif
 
                       <td>
@@ -134,15 +138,6 @@
         </tbody>
       </table>
       
-      <nav aria-label="...">
-        <ul class="pagination">
-          <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item active"><a class="page-link" href="#">2<span class="sr-only">(current)</span></a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-      </nav>
 
     </div>
 
@@ -251,6 +246,8 @@
                         @endif
 
                       </select>
+
+                      <br>
                     
 
                       <label for="job">Job</label>
@@ -321,21 +318,29 @@
                       </thead>
         
                       <tbody>
-                        @php($cntrole = 0)
+                        @php
+                          $cntrole = 0;
+                        @endphp
+
                         @foreach ($roles as $role)
 
-                          @php($data = array('data' => array('role_id' => $role->id)))
                           <tr>
                               <td>{{$role->rolename}}</td>
                               <td>
-                                @php($chk = 'false')
+                                @php
+                                  $chk = 'false';
+                                @endphp
                                 
-                                @php($cntrole++)
+                                @php
+                                  $cntrole++;
+                                @endphp
                                 @foreach ($UserRoles as $UserRole)
                                   
                                   @if ($role->id == $UserRole->role_id && $UserRole->user_id == $User->id)
 
-                                    @php($chk = 'true')
+                                    @php
+                                      $chk = 'true';
+                                    @endphp
 
                                   @endif
 

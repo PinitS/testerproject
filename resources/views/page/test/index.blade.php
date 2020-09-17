@@ -11,7 +11,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="name">Name</label>
-            <input class="form-control " id="pint-input-name" type="text" placeholder="Enter your name">
+            <input class="form-control pint-input-name" id="name" type="text" placeholder="Enter your name">
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label for="cvv">CVV/CVC</label>
-            <input class="form-control " id="cvv" type="text" placeholder="123" disabled>
+            <input class="form-control pint-input-ccv" id="cvv" type="text" placeholder="123" disabled>
           </div>
         </div>
       </div>
@@ -74,46 +74,14 @@
 
   <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
 
-  <label class="c-switch c-switch-label c-switch-danger">
 
-    <input  id="roie_id_hidden" name ="role_id" class="c-switch-input pnt-chk-b" value="off" type="hidden">
-    <input  id="role_id" name ="role_id" class="c-switch-input pnt-chk-b" value="on" type="checkbox"><span class="c-switch-slider" data-checked="On" data-unchecked="Off"></span>
-</label>
-
-<input type="radio" name="result" id="asd" value="buy" checked>
-<input type="radio" name="result" id="asd" value="sell">
+  
 
 
 @endsection
 
 @section('script')
   <script>
-
-    $('#role_id').change(function()
-      {
-        if( $('#role_id').is(":checked"))
-        {
-          $('#roie_id').val();      
-        }
-        else
-        {
-          $('#roie_id').val(); 
-
-        }
-        //console.log("check"); 
-        console.log($($('#roie_id').val());        
-      }
-    );
-
-    function test() {
-        if (document.getElementById('asd').checked == true) {
-            alert("hello1");
-        }
-
-        if (document.getElementById('asd').checked == true) {
-            alert("hello2");
-        }
-    }
 
     
 
@@ -134,9 +102,9 @@
     // );
 
 
-    $('#pint-input-name').keyup(function()
+    $('.pint-input-name').keyup(function()
       {
-        var Values = $('#pint-input-name').val();
+        var Values = $('.pint-input-name').val();
         console.log(Values);
         if(Values === "")
         {

@@ -28,8 +28,26 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::resource('userRole', 'UserRoleController');
 
+    Route::resource('productinfo', 'ProductinfoController');
+
+    Route::resource('promotion', 'PromotionController');
+
     Route::get('/userinfo/{Ative}/{Usid}/' ,'UserinfoController@activeupdate')->name('userinfo.activeupdate');
+
     Route::post('/userinfo-Member' ,'UserinfoController@changeMemberPassword')->name('userinfo.resetPassword');
+
+    Route::get('/productinfo+{ptid}+{pid}', 'ProductinfoController@changeproducttype')->name('productinfo.changeproducttype');
+    
+    Route::get('/changeactive+{pid}+{active}', 'ProductinfoController@changeactive')->name('productinfo.changeactive');
+
+    Route::get('/updatecountproduct+{pid}', 'ProductinfoController@updatecount_product')->name('productinfo.updatecount_product');
+
+    Route::get('/activepromotion+{id}+{active}', 'PromotionController@activepromotion')->name('promotion.activepromotion');
+
+    Route::get('/CustomDelPro+{id}+{active}', 'PromotionController@CustomDelPro')->name('promotion.CustomDelPro');
+
+
+
     // Route::post('/userinfo-Member' ,'UserinfoController@changeMemberPassword')->name('userinfo.changeOnlyPassword');
 
 });
@@ -62,3 +80,5 @@ Auth::routes();
 Route::get('/test', function () {
     return view('page.test.index');
 });
+
+Route::get('/testcon', 'ProductinfoController@testcon');

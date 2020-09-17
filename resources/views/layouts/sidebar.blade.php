@@ -53,10 +53,9 @@
         </li>
         
         <li class="c-sidebar-nav-item">
-          <a class="c-sidebar-nav-link disabled" href="#">
+          <a class="c-sidebar-nav-link disabled" href="productinfo">
             <i class="fas fa-utensils 2x mt-0 mb-2 ml-1 mr-4 h5"></i> 
               <span class ="mb-2 ml-1">Product information</span> 
-              <span class="badge badge-danger">Disabled</span>
             </a>
           </a>
         </li>
