@@ -33,8 +33,8 @@
 
         @if(Auth::user()->status == 1)
 
-        <li class="c-sidebar-nav-item">
-          <a class="c-sidebar-nav-link disabled" href="#">
+        <li class="c-sidebar-nav-item disabled">
+          <a class="c-sidebar-nav-link disabled">
           <i class="fas fa-folder-open mt-0 mb-2 ml-1 mr-4 h5"></i> 
             <span class ="mb-2">Order list </span>  
             <span class="badge badge-warning">admin</span>
@@ -45,7 +45,7 @@
         @endif
 
         <li class="c-sidebar-nav-item">
-          <a class="c-sidebar-nav-link" href="#">
+          <a class="c-sidebar-nav-link" href="/CustomShow+0+{{Auth::user()->id}}">
             <i class="fas fa-shopping-cart mt-0 mb-2 ml-0 mr-4 h5"></i> 
               <span class ="mb-2">Order food</span> 
             </a>

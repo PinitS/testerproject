@@ -107,7 +107,7 @@
 
                       @if($User->active == 1)
                         <button class="btn btn-sm btn-warning mb-1 text-white" type="button" data-toggle="modal" data-target="#largeModal{{$User->id}}">
-                          <i class="fas fa-share-square fa-lg"></i>
+                          <i class="fas fa-edit"></i>
                         </button>
 
                         <button class="btn btn-sm btn-danger mb-1 text-white"> 
@@ -293,7 +293,7 @@
 
     @foreach($Users as $User)
 
-      <form action="userRole" method="post">
+      <form action="cartDetail" method="post">
 
         {{ csrf_field() }}
 
@@ -308,7 +308,7 @@
 
                 <div class="row">
                   <div class="col-md-10 container text-center">
-                    <table class="table table-responsive-sm table-bordered">
+                    <table class="table table-borderless">
 
                       <thead>
                         <tr>
@@ -318,9 +318,6 @@
                       </thead>
         
                       <tbody>
-                        @php
-                          $cntrole = 0;
-                        @endphp
 
                         @foreach ($roles as $role)
 
@@ -331,9 +328,6 @@
                                   $chk = 'false';
                                 @endphp
                                 
-                                @php
-                                  $cntrole++;
-                                @endphp
                                 @foreach ($UserRoles as $UserRole)
                                   
                                   @if ($role->id == $UserRole->role_id && $UserRole->user_id == $User->id)
@@ -358,11 +352,12 @@
                       </tbody>
         
                     </table>
-
                   </div>
+
                 </div>
 
               </div>
+
               <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
                 @if($roles->isNotEmpty())

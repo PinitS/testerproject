@@ -92,6 +92,34 @@
   <button type="button"  class="btn btn-lg btn-danger pnt-btn-out-card" style="position: fixed; top: 80px; right: 10px;" >Order</button>
 
 
+  <div class="row">
+    <div class="col-sm-3">
+      <input type="hidden" class ="pnt-text-value" value="#sweet ">
+      <button type="button"  class="btn btn-lg btn-danger mb-2 pnt-add-text1" data-value="" >1</button>
+    </div>
+
+    <div class="col-sm-3">
+      <button type="button"  class="btn btn-lg btn-danger mb-2 pnt-add-text2" >2</button>
+    </div>
+
+    <div class="col-sm-3">
+      <button type="button"  class="btn btn-lg btn-danger mb-2 pnt-add-text3" >3</button>
+    </div>
+
+    <div class="col-sm-3">
+      <button type="button"  class="btn btn-lg btn-danger mb-2 pnt-add-text4" >4</button>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <input class="form-control pnt-input-text" id="name" type="text" placeholder="Enter your name">
+    </div>
+  </div>
+
+
+
   
 
 
@@ -99,6 +127,47 @@
 
 @section('script')
   <script>
+let text = "";
+// $('.pnt-add-text1').click(function()
+//   {
+//     g += "g ";
+//     $('.pnt-input-text').val();
+//     console.log(g);
+//   }
+      
+// );
+
+@foreach($hashtags as $hashtag)
+$('.pnt-add-text{!! $hashtag->id !!}').click(function()
+  {
+    text += $('.pnt-text-value').val();
+    $('.pnt-input-text').val(text);
+  } 
+);
+@endforeach
+
+$('.pnt-add-text2').click(function()
+  {
+    text += "#text2 ";
+    $('.pnt-input-text').val(text);
+  } 
+);
+
+$('.pnt-add-text3').click(function()
+  {
+    text += "#text3 ";
+    $('.pnt-input-text').val(text);
+  } 
+);
+
+$('.pnt-add-text4').click(function()
+  {
+    text += "#text4 ";
+    $('.pnt-input-text').val(text);
+  } 
+);
+
+
 
 $('.pnt-btn-out-card').click(function()
       {

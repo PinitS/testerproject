@@ -32,6 +32,8 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::resource('promotion', 'PromotionController');
 
+    Route::resource('cartDetail', 'CartDetailController');
+
     Route::get('/userinfo/{Ative}/{Usid}/' ,'UserinfoController@activeupdate')->name('userinfo.activeupdate');
 
     Route::post('/userinfo-Member' ,'UserinfoController@changeMemberPassword')->name('userinfo.resetPassword');
@@ -45,6 +47,22 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('/activepromotion+{id}+{active}', 'PromotionController@activepromotion')->name('promotion.activepromotion');
 
     Route::get('/CustomDelPro+{id}+{active}', 'PromotionController@CustomDelPro')->name('promotion.CustomDelPro');
+
+
+
+    Route::get('/CustomShow+{cat_id}+{usid}', 'CartController@CustomShow')->name('cart.CustomShow');
+    Route::get('/CustomStore+{pid}+{usid}+{price}', 'CartController@CustomStore')->name('cart.CustomStore');
+    Route::get('/CustomClear+{usid}', 'CartController@CustomClear')->name('cart.CustomClear');
+
+    Route::get('/Updatehashtag+{cartid}', 'CartController@Updatehashtag')->name('cart.Updatehashtag');
+
+    Route::post('/UpdateQuatity+{id}', 'CartController@UpdateQuatity')->name('cart.UpdateQuatity');
+
+    Route::get('/CustomDelCart+{usid}+{cartid}', 'CartController@CustomDelCart')->name('cart.CustomDelCart');
+
+
+
+    
 
 
 

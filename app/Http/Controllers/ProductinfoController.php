@@ -21,9 +21,9 @@ class ProductinfoController extends Controller
         $categories = category::all();
 
         $product_types = [
-                            '1' => 'สินค้าทั่วไป' ,
-                            '2' => 'สินค้าใหม่' ,
-                            '3' => 'สินค้าแนะนำ' ,
+                            '1' => 'Genaral Products' ,
+                            '2' => 'New Products' ,
+                            '3' => 'Recommended Products' ,
                         ];
 
         return view('page.productinfo.index' , ['products' => $products , 'categories' => $categories , 'product_types' => $product_types]);

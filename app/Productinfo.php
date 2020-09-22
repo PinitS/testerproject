@@ -22,4 +22,9 @@ class Productinfo extends Model
     {
         return $this->hasMany(Promotion::class);
     }
+
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }
