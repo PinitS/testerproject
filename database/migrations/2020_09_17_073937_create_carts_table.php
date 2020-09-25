@@ -16,11 +16,13 @@ class CreateCartsTable extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
             $table->integer('productinfo_id');
+            $table->text('productname');
             $table->integer('price');
             $table->integer('quatity');
             $table->text('note');
             $table->integer('totalprice');
-            $table->integer('user_id');        
+            $table->integer('user_id'); 
+            $table->text('textpromotion');
             $table->timestamps();
         });
     }

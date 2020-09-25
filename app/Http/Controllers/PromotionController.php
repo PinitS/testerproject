@@ -37,9 +37,9 @@ class PromotionController extends Controller
      */
     public function store(Request $request)
     {
-        $start_date = Carbon::parse($request->sdate);
-        $end_date = Carbon::parse($request->edate);
-        $timenow = Carbon::now();
+        $start_date = Carbon::parse($request->sdate)->format('Y-m-d');
+        $end_date = Carbon::parse($request->edate)->format('Y-m-d');
+        $timenow = Carbon::now()->format('Y-m-d');
 
         $promotions = Promotion::where('productinfo_id' , $request->product_id)
                                 ->get();
@@ -77,7 +77,7 @@ class PromotionController extends Controller
         
         $request->session()->flash('success' , 'Add Promotion success fully');
         return redirect()->action('ProductinfoController@index');
-        //
+        
     }
 
 

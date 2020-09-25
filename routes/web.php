@@ -34,6 +34,11 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::resource('cartDetail', 'CartDetailController');
 
+    Route::resource('cashier', 'CashierController');
+
+    Route::resource('order', 'OrderController');
+
+
     Route::get('/userinfo/{Ative}/{Usid}/' ,'UserinfoController@activeupdate')->name('userinfo.activeupdate');
 
     Route::post('/userinfo-Member' ,'UserinfoController@changeMemberPassword')->name('userinfo.resetPassword');
@@ -51,7 +56,9 @@ Route::group(['middleware' => 'auth'], function ()
 
 
     Route::get('/CustomShow+{cat_id}+{usid}', 'CartController@CustomShow')->name('cart.CustomShow');
-    Route::get('/CustomStore+{pid}+{usid}+{price}', 'CartController@CustomStore')->name('cart.CustomStore');
+    
+    Route::get('/CustomStore+{pid}+{pname}+{usid}+{price}+{promotion}', 'CartController@CustomStore')->name('cart.CustomStore');
+    
     Route::get('/CustomClear+{usid}', 'CartController@CustomClear')->name('cart.CustomClear');
 
     Route::get('/Updatehashtag+{cartid}', 'CartController@Updatehashtag')->name('cart.Updatehashtag');
@@ -61,6 +68,12 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('/CustomDelCart+{usid}+{cartid}', 'CartController@CustomDelCart')->name('cart.CustomDelCart');
 
 
+    Route::get('/cashier+{oid}', 'CashierController@CustomShow')->name('cashier.CustomShow');
+
+    Route::get('/CustomCheckcreate+{oid}+{osetid}', 'CashierController@CustomCheckcreate')->name('cashier.CustomCheckcreate');
+
+
+    Route::get('/CustomNewOrder+{usid}', 'OrderController@CustomNewOrder')->name('order.CustomNewOrder');
 
     
 

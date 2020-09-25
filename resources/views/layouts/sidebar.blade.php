@@ -16,10 +16,9 @@
         </li>
 
         <li class="c-sidebar-nav-item">
-          <a class="c-sidebar-nav-link disabled" href="#">
+          <a class="c-sidebar-nav-link disabled" href="cashier+0">
             <i class="fas fa-tv mt-0 mb-2 ml-1 mr-4 h5"></i> 
             <span class ="mb-2">Cashier </span>  
-            <span class="badge badge-danger">Disabled</span>
           </a>
         </li>
 

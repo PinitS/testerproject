@@ -49,7 +49,7 @@
 
             <div class="col-md-6 mt-2">
                 <div class="input-group">
-                    <input type="text" class="form-control col-md-3 col-sm-12 ml-auto" placeholder="Search for..." aria-label="Search for...">
+                    <input type="text" class="form-control col-md-5 ml-auto" placeholder="Search for..." aria-label="Search for...">
                     <span class="input-group-btn">
                     <button class="btn btn-secondary" type="button">Go!</button>
                     </span>
@@ -81,45 +81,49 @@
                                             @if($product->product_type == 1)
                                                 {{-- <span class="badge badge-pill badge-secondary float-right h6">Genaral Product</span> --}}
                                             @elseif($product->product_type == 2)
-                                                <span class="badge badge-pill badge-success float-right h6">New Product</span>
+                                                <span class="badge badge-pill badge-success float-right">New Product</span>
                                             @else
-                                                <span class="badge badge-pill badge-danger float-right h6">Recommended Product</span>
+                                                <span class="badge badge-pill badge-danger float-right">Recommended Product</span>
                                             @endif
 
                                         </div>
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-12 text-center">
-                                                    <img src= "https://via.placeholder.com/250" />                                            
+                                                    <img src= "https://via.placeholder.com/250" width="100%"/>                                            
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
 
                                                 @php
-                                                    $price = 0;
+                                                    $price = $product->price;
+                                                    $textpromotion = ' ';
                                                 @endphp
 
                                                 @if($product->promotion->isNotEmpty())
 
                                                     @foreach($product->promotion as $promotion)
                                                         @if(\Carbon\Carbon::today() >= $promotion->start && \Carbon\Carbon::today() <= $promotion->end)
-                                                            <strong class="h4 ml-3"> {{$promotion->discount}} </strong>
-                                                            <span class="badge badge-pill badge-warning h6 ml-2">Promotion</span>
+                                                            {{-- <strong class="h4 ml-3"> {{$promotion->discount}} </strong> --}}
+                                                            <span class="badge badge-pill badge-warning ml-2">Promotion</span>
                                                             @php
                                                                 $price = $promotion->discount;
+                                                                $textpromotion = 'promotion';
                                                             @endphp
                                                         @endif
                                                     @endforeach
                                                         
                                                 @else
-                                                    <strong class="h4 ml-3">{{$product->price}} </strong>
+
                                                     @php
                                                         $price = $product->price;
+                                                        $textpromotion = ' ';
                                                     @endphp
 
                                                 @endif
 
+                                                <strong class="h5 ml-3">{{$price}} </strong>
 
                                                 @if($product->count_quatity == 0 && $product->active_count == 1)
 
@@ -131,7 +135,7 @@
 
                                                 @else
 
-                                                <a class="mr-2 ml-auto" href="{{route('cart.CustomStore' , ['pid' => $product->id , 'usid' => Auth::user()->id , 'price' => $price])}}" style='text-decoration:none;'>
+                                                <a class="mr-2 ml-auto" href="{{route('cart.CustomStore' , ['pid' => $product->id , 'pname' => $product->name , 'usid' => Auth::user()->id , 'price' => $price  , 'promotion' => $textpromotion])}}" style='text-decoration:none;'>
                                                     <button class=" btn btn-sm btn-info text-white  " type="submit" >
                                                         Add to Cart
                                                         <i class="fas fa-shopping-cart"></i>
@@ -451,8 +455,27 @@
 
             <div class="modal-footer">
 
-                <button class="btn btn-primary" type="button">Confirm</button>  
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                @if($Carts->isNotEmpty())
+
+                @php
+                    $fixcon ="";
+                @endphp
+
+                @else
+
+                    @php
+                        $fixcon ="disabled";
+                    @endphp
+                    
+                @endif
+
+                <form action="order" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" id="user_id" name ="user_id" value="{{Auth::user()->id}}">
+                    <button  {{$fixcon}} class="btn btn-primary" type="submit">Confirm</button>  
+
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                </form>
 
             </div>
         </div>
@@ -468,6 +491,9 @@
     @foreach($Carts as $Cart)
         <form action="cartDetail" method="post">
         {{ csrf_field() }}
+
+        <input type="hidden" id="Cart_product" name ="Cart_product" value="{{$Cart->productinfo_id}}">
+        
             <div class="modal fade" id="myModalmaterrial{{$Cart->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -490,6 +516,7 @@
                             </thead>
             
                             <tbody>
+                                
     
                                 @foreach ($materials as $material)
         

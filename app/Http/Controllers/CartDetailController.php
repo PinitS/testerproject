@@ -49,16 +49,26 @@ class CartDetailController extends Controller
                                     ->first();
                 
 
-                $pricematerial = material::where('id' , $material_key)
+                $getmaterial = material::where('id' , $material_key)
                                             ->first();
+
+                $checkdupicate = CartDetail::where('cart_id' , $request->cart_id)
+                                            ->where('material_id' , $material_key)
+                                            ->first();
+                if($checkdupicate != null)
+                {
+                    return redirect()->action('CartController@CustomShow' , ['cat_id' => 0 , 'usid' =>$request->user_id]); 
+                }
     
 
                 CartDetail::create([
                                     'cart_id'=> $request->cart_id,
+                                    'productinfo_id' => $request->Cart_product,
                                     'material_id'=> $material_key,
-                                    'price'=> $pricematerial->materialprice,
+                                    'materialName' => $getmaterial->materialname,
+                                    'price'=> $getmaterial->materialprice,
                                     'quatity'=> $checkQuatity->quatity,
-                                    'total_price'=> ($checkQuatity->quatity * $pricematerial->materialprice),
+                                    'total_price'=> ($checkQuatity->quatity * $getmaterial->materialprice),
                                     'user_id'=> $request->user_id,
                                 ]);
                 

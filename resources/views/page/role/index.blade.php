@@ -17,7 +17,7 @@
       <div class="col-md-6">
 
         @if($keywords != null)
-          <button class="btn btn-info mb-1 pnt-add-btn" type="button" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"></i> Add Roles</button>
+          <button class="btn btn-info mb-1 pnt-add-btn float-md-right float-sm-right" type="button" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"></i> Add Roles</button>
         @endif
 
       </div>

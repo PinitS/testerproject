@@ -15,7 +15,7 @@
       </div>
 
       <div class="col-md-6">
-        <button class="btn btn-info mb-1" type="button" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"></i> Add Hashtag</button>
+        <button class="btn btn-info mb-1 float-md-right float-sm-right" type="button" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"></i> Add Hashtag</button>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
 
       <div class="col-md-6">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+          <input type="text" class="form-control col-md-5 ml-auto" placeholder="Search for..." aria-label="Search for...">
           <span class="input-group-btn">
             <button class="btn btn-secondary" type="button">Go!</button>
           </span>

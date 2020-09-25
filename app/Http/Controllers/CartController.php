@@ -43,7 +43,8 @@ class CartController extends Controller
                                     ->get();
         }
 
-        return view('page.cart.index' , [   'categories' => $categories , 
+        return view('page.cart.index' , [ 
+                                            'categories' => $categories , 
                                             'products' => $products , 
                                             'Carts' => $Carts , 
                                             'cartDetails' => $cartDetails , 
@@ -52,14 +53,16 @@ class CartController extends Controller
                                         ]);
     }
 
-    public function CustomStore(Request $request, $pid , $usid , $price)
+    public function CustomStore(Request $request, $pid , $pname , $usid , $price ,$promotion)
     {
 
         Cart::create([
                         'productinfo_id' =>  $pid ,
+                        'productname' => $pname,
                         'price' =>  $price ,
                         'note' =>  "" ,
                         'quatity' =>  1 ,
+                        'textpromotion' => $promotion,
                         'totalprice' =>  $price ,
                         'user_id' =>  $usid
                     ]);
