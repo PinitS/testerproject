@@ -18,6 +18,7 @@ class CreateOrderSetsTable extends Migration
             $table->integer('order_id');
             $table->integer('status');
             $table->integer('times');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

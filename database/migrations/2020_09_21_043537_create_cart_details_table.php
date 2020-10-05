@@ -23,6 +23,7 @@ class CreateCartDetailsTable extends Migration
             $table->integer('quatity');
             $table->integer('total_price');
             $table->integer('user_id');
+            
             $table->timestamps();
         });
     }

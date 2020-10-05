@@ -23,6 +23,10 @@ class CreateCartsTable extends Migration
             $table->integer('totalprice');
             $table->integer('user_id'); 
             $table->text('textpromotion');
+            
+            $table->integer('oid');
+            $table->integer('osetid'); 
+        
             $table->timestamps();
         });
     }

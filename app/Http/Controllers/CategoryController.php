@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = category::all();
-        return view('page.category.index' , ['categories' => $categories]);
+        return view('page.category.index', ['categories' => $categories]);
         //
     }
 
@@ -38,19 +38,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-    
-        $categoryCheck = category::where('categoryname' , $request->categoryname)->first();
 
-        if($categoryCheck == null)
-        {
-            category::create(['categoryname'=> $request->categoryname,]);
-            $request->session()->flash('success' , 'Add category success fully');
-            return redirect()->action('CategoryController@index'); 
-        }
-        else
-        {
-            $request->session()->flash('danger' , 'category has already exit');
-            return redirect()->action('CategoryController@index'); 
+        $categoryCheck = category::where('categoryname', $request->categoryname)->first();
+
+        if ($categoryCheck == null) {
+            category::create(['categoryname' => $request->categoryname]);
+            $request->session()->flash('success', 'Add category success fully');
+            return redirect()->action('CategoryController@index');
+        } else {
+            $request->session()->flash('danger', 'category has already exit');
+            return redirect()->action('CategoryController@index');
         }
         //
     }
@@ -88,29 +85,25 @@ class CategoryController extends Controller
      */
     public function update(Request $request, category $category)
     {
-        $categoryCheck = category::where('categoryname' , $request->categoryname)->first();
+        $categoryCheck = category::where('categoryname', $request->categoryname)->first();
 
-        if($categoryCheck == null)
-        {
-            category::where('id' , $category->id)
-                    ->update(['categoryname'=> $request->categoryname]);
+        if ($categoryCheck == null) {
+            category::where('id', $category->id)
+                ->update(['categoryname' => $request->categoryname]);
 
-            $request->session()->flash('info' , 'Update category Success fully');
-            return redirect()->action('CategoryController@index'); 
-        }
-        else
-        {
-            if($categoryCheck->id == $category->id)
-            {
-                category::where('id' , $category->id)
-                        ->update(['categoryname'=> $request->categoryname]);
+            $request->session()->flash('info', 'Update category Success fully');
+            return redirect()->action('CategoryController@index');
+        } else {
+            if ($categoryCheck->id == $category->id) {
+                category::where('id', $category->id)
+                    ->update(['categoryname' => $request->categoryname]);
 
-                $request->session()->flash('info' , 'Update category Success fully');
-                return redirect()->action('CategoryController@index'); 
+                $request->session()->flash('info', 'Update category Success fully');
+                return redirect()->action('CategoryController@index');
 
             }
-            $request->session()->flash('danger' , 'category has already exit');
-            return redirect()->action('CategoryController@index'); 
+            $request->session()->flash('danger', 'category has already exit');
+            return redirect()->action('CategoryController@index');
         }
     }
 
@@ -122,9 +115,9 @@ class CategoryController extends Controller
      */
     public function destroy(category $category)
     {
-        $deletecategory = category::where('id' , $category->id);
+        $deletecategory = category::where('id', $category->id);
         $deletecategory->delete();
-        session()->flash('success' , 'Delete category Success fully');
-        return redirect()->action('CategoryController@index'); 
+        session()->flash('success', 'Delete category Success fully');
+        return redirect()->action('CategoryController@index');
     }
 }

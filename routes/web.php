@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'auth'], function () 
+Route::group(['middleware' => 'auth'], function ()
 {
     Route::resource('hashtag', 'HashtagController');
 
@@ -44,7 +44,7 @@ Route::group(['middleware' => 'auth'], function ()
     Route::post('/userinfo-Member' ,'UserinfoController@changeMemberPassword')->name('userinfo.resetPassword');
 
     Route::get('/productinfo+{ptid}+{pid}', 'ProductinfoController@changeproducttype')->name('productinfo.changeproducttype');
-    
+
     Route::get('/changeactive+{pid}+{active}', 'ProductinfoController@changeactive')->name('productinfo.changeactive');
 
     Route::get('/updatecountproduct+{pid}', 'ProductinfoController@updatecount_product')->name('productinfo.updatecount_product');
@@ -55,27 +55,32 @@ Route::group(['middleware' => 'auth'], function ()
 
 
 
-    Route::get('/CustomShow+{cat_id}+{usid}', 'CartController@CustomShow')->name('cart.CustomShow');
-    
-    Route::get('/CustomStore+{pid}+{pname}+{usid}+{price}+{promotion}', 'CartController@CustomStore')->name('cart.CustomStore');
-    
-    Route::get('/CustomClear+{usid}', 'CartController@CustomClear')->name('cart.CustomClear');
+    Route::get('/CustomShow+{cat_id}+{usid}+{oid}+{osetid}', 'CartController@CustomShow')->name('cart.CustomShow');//edit
 
-    Route::get('/Updatehashtag+{cartid}', 'CartController@Updatehashtag')->name('cart.Updatehashtag');
+    Route::get('/CustomStore+{pid}+{pname}+{usid}+{price}+{promotion}+{oid}+{osetid}', 'CartController@CustomStore')->name('cart.CustomStore');//edit
 
-    Route::post('/UpdateQuatity+{id}', 'CartController@UpdateQuatity')->name('cart.UpdateQuatity');
+    Route::get('/CustomClear+{usid}+{oid}+{osetid}', 'CartController@CustomClear')->name('cart.CustomClear');
 
-    Route::get('/CustomDelCart+{usid}+{cartid}', 'CartController@CustomDelCart')->name('cart.CustomDelCart');
+    Route::get('/Updatehashtag+{cat_id}+{oid}+{osetid}', 'CartController@Updatehashtag')->name('cart.Updatehashtag');
+
+    Route::post('/UpdateQuatity+{id}+{usid}+{oid}+{osetid}', 'CartController@UpdateQuatity')->name('cart.UpdateQuatity');
+
+    Route::get('/CustomDelCart+{cat_id}+{usid}+{oid}+{osetid}', 'CartController@CustomDelCart')->name('cart.CustomDelCart');
 
 
     Route::get('/cashier+{oid}', 'CashierController@CustomShow')->name('cashier.CustomShow');
 
-    Route::get('/CustomCheckcreate+{oid}+{osetid}', 'CashierController@CustomCheckcreate')->name('cashier.CustomCheckcreate');
+    Route::get('/CustomCheckcreate+{oid}+{usid}', 'CashierController@CustomCheckcreate')->name('cashier.CustomCheckcreate');
 
 
     Route::get('/CustomNewOrder+{usid}', 'OrderController@CustomNewOrder')->name('order.CustomNewOrder');
 
-    
+    Route::get('/CustomDelOrder+{oid}+{usid}', 'CashierController@CustomDelOrder')->name('cashier.CustomDelOrder');
+
+
+    Route::post('/changeOrder', 'CashierController@changeOrder')->name('changeOrder');
+
+
 
 
 
@@ -83,7 +88,7 @@ Route::group(['middleware' => 'auth'], function ()
 
 });
 
-Route::get('/', function () 
+Route::get('/', function ()
 {
     if(Auth::user())
     {
@@ -93,7 +98,7 @@ Route::get('/', function ()
     {
         return view('auth.login');
     }
-    
+
 });
 
 // Route::get('/', function () {
@@ -109,7 +114,9 @@ Auth::routes();
 //for test
 
 Route::get('/test', function () {
-    return view('page.test.index');
+    return view('page.test.index3');
 });
 
 Route::get('/testcon', 'ProductinfoController@testcon');
+
+Route::post('/testconpost', 'ProductinfoController@testcon')->name('testconpost');

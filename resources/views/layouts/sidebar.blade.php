@@ -44,7 +44,7 @@
         @endif
 
         <li class="c-sidebar-nav-item">
-          <a class="c-sidebar-nav-link" href="/CustomShow+0+{{Auth::user()->id}}">
+          <a class="c-sidebar-nav-link" href="/CustomShow+0+{{Auth::user()->id}}+0+0">
             <i class="fas fa-shopping-cart mt-0 mb-2 ml-0 mr-4 h5"></i> 
               <span class ="mb-2">Order food</span> 
             </a>

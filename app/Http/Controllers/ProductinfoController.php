@@ -7,6 +7,14 @@ use App\Productinfo;
 use App\category;
 use App\QuatityReport;
 
+
+
+
+use App\Order;
+use App\OrderDetail;
+use App\OrderDetailmaterial;
+use App\OrderSet;
+
 class ProductinfoController extends Controller
 {
     /**
@@ -210,10 +218,11 @@ class ProductinfoController extends Controller
      
     }
 
-    public function testcon()
+    public function testcon(Request $request)
     {
-        return "testcon";
-     
+
+
+       // return redirect()->action('ProductinfoController@index'); 
     }
 
 
